@@ -11,7 +11,7 @@ function LeftSiteNav() {
     
   return (
     <div>
-          <h2 className="font-bold text-gray-500 mb-5">All Caterogy</h2>
+          <h2 className="font-bold text-gray-600 mb-5">All Caterogy</h2>
           {
               categories.map(category => <Link
                   to={`category/${category.id}`}

@@ -22,7 +22,7 @@ function Home() {
                   <LeftSiteNav />
               </div>
               <div className="md:col-span-2">
-                  <h2 className="font-bold text-gray-500 mb-5">Dragon News Home</h2>
+                  <h2 className="font-bold text-gray-600 mb-5">Dragon News Home</h2>
                   {
                       news.map(newsPost => <NewsPost key={newsPost._id} newsPost={ newsPost} />)
                   }

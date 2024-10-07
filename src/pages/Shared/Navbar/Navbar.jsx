@@ -39,7 +39,7 @@ function Navbar() {
           </div>
           <div className="navbar-end flex items-center gap-2">
               <img src={user} className="w-10" />
-              <Link to="/login" className="bg-[#403F3F] px-6 py-2 text-white btn rounded-none hover:text-black">Login</Link>
+              <Link to="/login" className="bg-[#403F3F] hover:bg-orange-600 text-white btn rounded-none hover:text-black">Login</Link>
           </div>
       </div>
   )
