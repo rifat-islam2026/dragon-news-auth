@@ -1,3 +1,4 @@
+import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -18,12 +19,18 @@ function Register() {
             .then(result => {
                 e.target.reset()
                 navigate("/login")
+                // update profile 
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL:photo
+                })
+                    .then()
+                .catch()
             console.log(result.user)
             })
             .catch(error => {
             console.log(error.message)
-        })
-
+            })
     }
   return (
       <div>

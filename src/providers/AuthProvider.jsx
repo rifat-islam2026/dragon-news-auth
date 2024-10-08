@@ -6,23 +6,27 @@ export  const AuthContext = createContext(null);
 
 function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
-    
+    const [loading,setLoading] = useState(true);
     // create user
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     // user sign in 
     const userSignIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     // sign out 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
     // on auth state change
     useEffect(() => {
        const unSubscribe= onAuthStateChanged(auth, currentUser => {
-          setUser(currentUser);
+           setUser(currentUser);
+           setLoading(false);
        })
         return () => {
             return unSubscribe;
@@ -32,7 +36,8 @@ function AuthProvider({ children }) {
         user,
         createUser,
         userSignIn,
-        logOut
+        logOut,
+        loading
     };
 
   return (
